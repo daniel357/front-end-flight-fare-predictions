@@ -1,0 +1,28 @@
+.facebook,
+.google {
+  position: relative;
+  margin-top: 16px;
+  padding: 0 56px;
+
+  .socialIcon {
+    position: absolute;
+    top: 13px;
+    left: 16px;
+  }
+}
+
+.facebook {
+  background: rgb(66, 103, 178);
+
+  &:hover {
+    background: rgb(12, 67, 178);
+  }
+}
+
+.google {
+  background: rgb(219, 68, 55);
+
+  &:hover {
+    background: rgb(196, 46, 33);
+  }
+}

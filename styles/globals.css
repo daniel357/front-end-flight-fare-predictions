@@ -1,0 +1,35 @@
+:root {
+  --header-height: 75px;
+  --bottom-nav-height: 62px;
+  --screen-size-mobile-max: 599px;
+  --background-color-primary: #f0f2fc;
+  --background-color-primary-disabled: #dadadab7;
+  --background-color-secondary: #fff;
+  --color-action-primary: #4123d7;
+  --color-action-primary-hover: #3212d4;
+  --color-action-primary-gradient: #813eda;
+  --color-action-primary-gradient-hover: #752cd4;
+  --color-success: #2da455;
+  --color-warning: #f0861f;
+  --color-text-secondary: #9a9a9a;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+}
+
+#__next {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
