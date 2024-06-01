@@ -20,7 +20,7 @@ const withAuth =
         AuthService.getCurrentAuthenticatedUser()
           .then(authenticatedUser => {
             if (!authenticatedUser) {
-              router.push('/login');
+              router.push('/home');
             } else {
               dispatch(login(authenticatedUser))
             }

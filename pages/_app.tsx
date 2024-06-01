@@ -14,7 +14,9 @@ import theme from '../src/theme';
 import createEmotionCache from '../src/createEmotionCache';
 import '../styles/globals.css';
 import LoadingSpinner from '../src/components/LoadingSpinner/LoadingSpinner';
-
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+config.autoAddCss = false;
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }

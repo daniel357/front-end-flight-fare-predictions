@@ -1,26 +1,31 @@
-import { useRouter } from 'next/router';
-
-import Button from '../../components/Button/Button';
+import type { NextPage } from 'next';
 import styles from './HomeScreen.module.scss';
-import { useDispatch } from 'react-redux';
-import { logout } from '@redux/slices/auth';
-import AuthService from 'src/services/auth/auth.service';
+import Navbar from 'src/components/Navbar/Navbar';
+import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChartLine, faCalculator } from '@fortawesome/free-solid-svg-icons';
 
-const HomeScreen = () => {
-  const router = useRouter();
-  const dispatch = useDispatch();
-
-  const logOut = async () => {
-    await AuthService.logout();
-    dispatch(logout())
-  }
-
+const Home: NextPage = () => {
   return (
     <div className={styles.container}>
-      <Button onClick={() => router.push('/login')}>LOGIN</Button>
-      <Button onClick={() => logOut()}>LOGOUT</Button>
+      <h1>Welcome to Flight Fare Predictions</h1>
+      <p>Find the best time to buy your flight tickets at the lowest price.</p>
+      <div className={styles.buttons}>
+        <Link href="/prediction" legacyBehavior>
+          <a>
+            <FontAwesomeIcon icon={faCalculator} size="4x" />
+            <span>Predict</span>
+          </a>
+        </Link>
+        <Link href="/statistics" legacyBehavior>
+          <a>
+            <FontAwesomeIcon icon={faChartLine} size="4x" />
+            <span>Statistics</span>
+          </a>
+        </Link>
+      </div>
     </div>
   );
 };
 
-export default HomeScreen;
+export default Home;

@@ -1,0 +1,99 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px;
+  border-radius: 8px;
+  background-color: rgba(23, 45, 59, 0.5);
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  .row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 8px;
+
+    label {
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    .MuiTextField-root, .custom-date-picker {
+      height: var(--input-height);
+      width: 100%;
+    }
+  }
+
+  .button {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    width: 8rem;
+    align-self: center;
+
+    &:hover {
+      background-color: var(--button-hover-color);
+    }
+
+    &:disabled {
+      background-color: var(--secondary-color);
+      cursor: not-allowed;
+    }
+  }
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+.modalContent {
+  position: relative;
+  width: 500px;
+  background-color: white;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+
+  h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+  }
+
+  p {
+    margin: 20px 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+
+  .closeIcon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #333;
+  }
+}
+
