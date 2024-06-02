@@ -2,10 +2,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from './Navbar.module.scss';
 import React from 'react';
-import { GiCommercialAirplane } from "react-icons/gi";
-import { RiHome4Line } from "react-icons/ri";
-import { QueryStats } from '@mui/icons-material';
-import { Info } from '@mui/icons-material';
+import { GiCommercialAirplane } from 'react-icons/gi';
+import { RiHome4Line } from 'react-icons/ri';
+import {  QueryStats } from '@mui/icons-material';
+import { LuCalendarSearch } from "react-icons/lu";
 
 const Navbar: React.FC = () => {
   const router = useRouter();
@@ -30,16 +30,16 @@ const Navbar: React.FC = () => {
         {router.pathname !== '/prediction' && (
           <Link href="/prediction" legacyBehavior>
             <a className={router.pathname === '/prediction' ? `${styles.navLink} ${styles.active}` : styles.navLink}>
-              <QueryStats className={styles.icon} />
+              <LuCalendarSearch className={styles.icon} />
               <span>Predictions</span>
             </a>
           </Link>
         )}
-        {router.pathname !== '/about' && (
-          <Link href="/about" legacyBehavior>
-            <a className={router.pathname === '/about' ? `${styles.navLink} ${styles.active}` : styles.navLink}>
-              <Info className={styles.icon} />
-              <span>About</span>
+        {router.pathname !== '/statistics' && (
+          <Link href='/statistics' legacyBehavior>
+            <a className={router.pathname === '/statistics' ? `${styles.navLink} ${styles.active}` : styles.navLink}>
+              <QueryStats className={styles.icon} />
+              <span>Statistics</span>
             </a>
           </Link>
         )}

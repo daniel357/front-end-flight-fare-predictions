@@ -8,8 +8,17 @@ const Predictions: NextPage = () => {
     <div className={styles.pageContainer}>
       <Navbar />
       <div className={styles.container}>
-        <h1>Get Your Flight Fare Predictions</h1>
+        <div className={`${styles.airportLabel} ${styles.startingAirport}`}>
+          CHICAGO
+        </div>
+        <div className={styles.curvedLine}></div>
+        <div className={`${styles.airportLabel} ${styles.destinationAirport}`}>
+          LOS ANGELES
+        </div>
+        <div className={styles.predictionFormContainer}>
+          <h1>Discover The Best Flight Deals</h1>
         <PredictionForm />
+        </div>
       </div>
     </div>
   );

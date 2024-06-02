@@ -1,3 +1,4 @@
+
 .form {
   display: flex;
   flex-direction: column;
@@ -5,10 +6,12 @@
   gap: 20px;
   padding: 40px;
   border-radius: 8px;
-  background-color: rgba(23, 45, 59, 0.5);
+  background-color: rgba(38, 107, 143, 0.5);
   max-width: 600px;
   margin: 0 auto;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(12, 79, 114, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+
   .row {
     display: flex;
     gap: 20px;
@@ -34,12 +37,13 @@
     .MuiTextField-root, .custom-date-picker {
       height: var(--input-height);
       width: 100%;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: var(--border-radius);
     }
   }
 
   .button {
-    background-color: var(--primary-color);
-    color: #fff;
+    color: black;
     padding: 10px;
     border: none;
     border-radius: var(--border-radius);
@@ -53,12 +57,22 @@
 
     &:hover {
       background-color: var(--button-hover-color);
+      color: white;
     }
 
     &:disabled {
       background-color: var(--secondary-color);
       cursor: not-allowed;
     }
+  }
+
+  .result {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--primary-color);
   }
 }
 
@@ -68,6 +82,7 @@
   justify-content: center;
   backdrop-filter: blur(5px);
 }
+
 .modalContent {
   position: relative;
   width: 500px;
@@ -75,17 +90,25 @@
   padding: 30px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
+  text-align: center;
 
   h2 {
     margin-top: 0;
-    font-size: 1.5rem;
-    color: var(--primary-color);
+    font-size: 2rem;
+    color: var(--button-hover-color);
+    margin-bottom: 20px;
   }
 
   p {
-    margin: 20px 0;
     font-size: 1.2rem;
     color: #333;
+    margin: 0;
+
+    strong {
+      font-weight: bold;
+      font-size: 1.35rem;
+      color: var(--button-hover-color);
+    }
   }
 
   .closeIcon {
@@ -94,6 +117,9 @@
     right: 10px;
     cursor: pointer;
     color: #333;
+    &:hover {
+      color: var(--button-hover-color);
+      transform: scale(1.1);
+    }
   }
 }
-

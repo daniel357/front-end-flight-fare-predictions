@@ -10,6 +10,7 @@ import { useHttp } from 'src/hooks/useHttp';
 import { FlightDto } from '../../types/flight.types';
 import Modal from '@mui/material/Modal';
 import CloseIcon from '@mui/icons-material/Close';
+import FlightApi from '../../services/api/flightDetails/flight.api';
 
 const PredictionForm: React.FC = () => {
   const { http } = useHttp({ withLoading: true });
@@ -41,17 +42,16 @@ const PredictionForm: React.FC = () => {
     };
 
     try {
-      // const response = await http(() => FlightApi.submitFlightDataForPrediction(flightData));
-      const response = 4;
-      setPredictedNumberOfDays(response);
+      const response = await http(() => FlightApi.submitFlightDataForPrediction(flightData));
+      // const response = 4;
+      const roundedPrediction = Math.round(response.prediction);
+      setPredictedNumberOfDays(roundedPrediction);
       setOpen(true);
       console.log(response);
     } catch (error) {
       console.error('Error submitting flight data', error);
     }
   };
-
-
   const resetForm = () => {
     setDepartureDate(null);
     setSearchDate(null);
@@ -143,6 +143,7 @@ const PredictionForm: React.FC = () => {
                   seconds: renderTimeViewClock
                 }}
                 renderInput={(params) => <TextField {...params} />}
+                sx={{ backgroundColor: 'white' }}
               />
             </div>
             <div className={styles.field}>
@@ -156,20 +157,12 @@ const PredictionForm: React.FC = () => {
                   seconds: renderTimeViewClock
                 }}
                 renderInput={(params) => <TextField {...params} />}
+                sx={{ backgroundColor: 'white' }}
               />
             </div>
           </LocalizationProvider>
         </div>
-        <button type='submit' className={styles.button} disabled={!isFormValid}>Predict</button>
-        {predictedNumberOfDays !== null && (
-          <div className={styles.result}>
-            <p>
-              For the flight on {departureDate?.format('YYYY-MM-DD')}
-              departing at {departureTime?.format('HH:mm')},
-              you should buy it {predictedNumberOfDays} days before it departs.
-            </p>
-          </div>
-        )}
+        <button type='submit' className={styles.button} disabled={!isFormValid}>Check Now</button>
       </form>
       <Modal
         open={open}
@@ -182,7 +175,9 @@ const PredictionForm: React.FC = () => {
           <CloseIcon className={styles.closeIcon} onClick={handleClose} />
           <h2 id='prediction-result-title'>Optimal Purchase Time</h2>
           <p id='prediction-result-description'>
-            For the flight on {departureDate?.format('MMMM Do, YYYY')} departing at {departureTime?.format('hh:mm A')}, it is recommended to purchase your ticket {predictedNumberOfDays} days before departure for the best fare.
+            For the flight on <strong>{departureDate?.format('MMMM Do, YYYY')}</strong> departing
+            at <strong>{departureTime?.format('hh:mm A')}</strong>, it is recommended to purchase your
+            ticket <strong>{predictedNumberOfDays} days</strong> before departure for the best fare.
           </p>
         </div>
       </Modal>

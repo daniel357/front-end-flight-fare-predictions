@@ -4,7 +4,7 @@ import { setToastMessage } from '@redux/actions';
 import { useDispatch } from 'react-redux';
 import { setIsLoading } from '@redux/slices/ui';
 
-import { Request, HttpHook, UseHttpOptions } from './useHttp.types';
+import { HttpHook, Request, UseHttpOptions } from './useHttp.types';
 
 export const useHttp = (options?: UseHttpOptions): HttpHook => {
   const dispatch = useDispatch();

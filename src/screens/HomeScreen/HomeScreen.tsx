@@ -1,26 +1,26 @@
 import type { NextPage } from 'next';
 import styles from './HomeScreen.module.scss';
-import Navbar from 'src/components/Navbar/Navbar';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartLine, faCalculator } from '@fortawesome/free-solid-svg-icons';
+import { LuCalendarSearch } from 'react-icons/lu';
+import { QueryStats } from '@mui/icons-material';
+import React from 'react';
 
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <h1>Welcome to Flight Fare Predictions</h1>
-      <p>Find the best time to buy your flight tickets at the lowest price.</p>
+      <p>Discover the optimal time to purchase flight tickets at the best prices.</p>
       <div className={styles.buttons}>
         <Link href="/prediction" legacyBehavior>
           <a>
-            <FontAwesomeIcon icon={faCalculator} size="4x" />
-            <span>Predict</span>
+            <LuCalendarSearch className={styles.icon} />
+            <span>Find Best Deals</span>
           </a>
         </Link>
         <Link href="/statistics" legacyBehavior>
           <a>
-            <FontAwesomeIcon icon={faChartLine} size="4x" />
-            <span>Statistics</span>
+            <QueryStats className={styles.icon} />
+            <span>View Price Trends</span>
           </a>
         </Link>
       </div>

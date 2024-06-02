@@ -32,7 +32,6 @@ const CustomSingleDatePicker: React.FC<DatePickerProps> = ({
       initialVisibleMonth={initialVisibleMonth}
       isOutsideRange={isOutsideRange}
       displayFormat="YYYY-MM-DD"
-      // className={styles['custom-date-picker']}
     />
   );
 };

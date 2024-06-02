@@ -4,8 +4,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  //background: url('/images/background.webp') no-repeat center center fixed;
-  background-size: cover;
   text-align: center;
   color: #fff;
   padding: 2rem 0;
@@ -44,6 +42,11 @@
         background: rgba(0, 0, 0, 0.3);
       }
 
+      .icon {
+        font-size: 5rem;
+        margin-right: 0.5rem;
+      }
+
       span {
         display: block;
         margin-top: 0.5rem;
@@ -53,17 +56,17 @@
       }
 
       &:hover {
-        color: #007bff;
+        color: var(--button-hover-color);
 
         .fa-icon {
           transform: scale(2);
           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-          color: #007bff;
+          color: var(--button-hover-color);;
         }
 
         span {
           transform: scale(1.1);
-          color: #007bff;
+          color: var(--button-hover-color);;
         }
       }
     }

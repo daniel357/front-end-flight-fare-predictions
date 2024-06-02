@@ -6,3 +6,15 @@ export interface FlightDto {
   arrivalHour: number | null;
   arrivalMinute: number | null;
 }
+
+
+export interface StatisticsDto {
+  flightDate: string;
+  baseFare: number;
+  isHoliday: boolean;
+
+}
+
+export interface PredictionResponseDto {
+  prediction: number;
+}

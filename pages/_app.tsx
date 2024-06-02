@@ -21,7 +21,6 @@ interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
 
-// Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
 const persistor = persistStore(store);
@@ -38,7 +37,6 @@ export default function MyApp(props: MyAppProps) {
       <ThemeProvider theme={theme}>
         <Provider store={store}>
           <PersistGate persistor={persistor}>
-            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
             <LoadingSpinner />
             <SWRConfig value={{ refreshInterval: 0, revalidateOnFocus: false }}>
